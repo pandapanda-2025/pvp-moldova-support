@@ -26,32 +26,67 @@ margin:0;
 font-family:'Inter',sans-serif;
 background:radial-gradient(circle at 20% 0%, #0f1a26 0%, #0a0c10 55%);
 color:var(--text);
+display:flex;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:260px;
+background:#0d1118;
+border-right:1px solid var(--border);
+padding:40px 20px;
+position:fixed;
+height:100vh;
+overflow:auto;
+}
+
+.logo{
+text-align:center;
+margin-bottom:50px;
+}
+
+.logo img{
+width:120px;
+}
+
+.menu a{
+display:block;
+padding:14px 18px;
+margin-bottom:10px;
+border-radius:12px;
+text-decoration:none;
+color:var(--muted);
+transition:0.25s;
+}
+
+.menu a:hover{
+background:var(--emerald-soft);
+color:var(--emerald);
+}
+
+/* MAIN */
+
+.main{
+margin-left:260px;
+width:100%;
+padding:60px 40px;
 }
 
 header{
-padding:80px 20px 60px;
-text-align:center;
-border-bottom:1px solid var(--border);
-background:linear-gradient(to bottom,#111722,#0a0c10);
+margin-bottom:50px;
 }
 
 header h1{
 font-family:'Orbitron',sans-serif;
-font-size:40px;
-margin:0;
-color:#fff;
-letter-spacing:1px;
+color:var(--emerald);
+font-size:36px;
+margin:0 0 10px 0;
 }
 
 header p{
-margin-top:12px;
 color:var(--muted);
-}
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:60px 20px;
+margin:0;
 }
 
 .card{
@@ -60,9 +95,8 @@ border:1px solid var(--border);
 border-radius:24px;
 padding:35px;
 margin-bottom:45px;
-position:relative;
 transition:0.35s ease;
-overflow:hidden;
+position:relative;
 }
 
 .card::before{
@@ -103,17 +137,12 @@ padding-left:22px;
 color:#b7c1d4;
 }
 
-li{
-margin-bottom:8px;
-}
-
 .tip{
 background:var(--emerald-soft);
 border-left:4px solid var(--emerald);
 padding:18px;
 border-radius:14px;
 margin:20px 0;
-color:#c9f7ea;
 }
 
 .warning{
@@ -136,10 +165,6 @@ color:var(--emerald);
 text-decoration:none;
 }
 
-a:hover{
-opacity:0.8;
-}
-
 .button{
 display:inline-block;
 margin-top:20px;
@@ -158,48 +183,79 @@ box-shadow:0 0 20px var(--emerald-soft);
 
 footer{
 text-align:center;
-padding:50px 20px;
-border-top:1px solid var(--border);
+padding:40px 0;
 color:var(--muted);
-font-size:14px;
+border-top:1px solid var(--border);
+margin-top:50px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+.sidebar{
+position:relative;
+width:100%;
+height:auto;
+border-right:none;
+border-bottom:1px solid var(--border);
+}
+.main{
+margin-left:0;
+padding:40px 20px;
+}
 }
 </style>
 </head>
 
 <body>
 
+<div class="sidebar">
+<div class="logo">
+<img src="logo.png" alt="PVP Moldova">
+</div>
+
+<div class="menu">
+<a href="#start">Игра не запускается</a>
+<a href="#crash">Вылеты и зависания</a>
+<a href="#fps">Производительность</a>
+<a href="#help">Поддержка</a>
+<a href="https://pvp.md/ru" target="_blank">Перейти на сайт</a>
+</div>
+</div>
+
+<div class="main">
+
 <header>
 <h1>PVP Moldova</h1>
 <p>Руководство по устранению технических проблем</p>
 </header>
 
-<div class="container">
-
-<!-- НЕ ЗАПУСКАЕТСЯ -->
-<div class="card">
+<div class="card" id="start">
 <h2>Если игра не запускается</h2>
 
 <h3>Типичные проблемы при запуске</h3>
 
-<h3>1. Проверка пути установки </h3>
+<h3>1. Проверка пути установки</h3>
+
 <ul>
-<li>Убедитесь, что клиент установлен на тот же диск, где находится Windows (обычно диск C:).</li>
-<li>Рекомендуемый путь: <code>C:\Games\PvP Moldova</code></li>
-<li>Избегайте путей с кириллицей (пример: C:\Игры\PvP Moldova).</li>
+<li>Убедитесь, что клиент игры установлен на тот же диск, где установлена система Windows (обычно диск C:).</li>
+<li>Используйте стандартный путь при установке: <code>C:\Games\PvP Moldova</code></li>
+<li>Избегайте путей с кириллицей (например: C:\Игры\PvP Moldova).</li>
 </ul>
 
 <h3>2. Способ запуска игры</h3>
+
 <ul>
-<li>Запустите скрипты разрешения и языка из папки Scripts.</li>
-<li>Всегда запускайте через Launcher или <code>main.exe</code>.</li>
-<li>Запуск от имени администратора:</li>
+<li>Запустите скрипты разрешения и языка, расположенные в папке <code>Scripts</code>.</li>
+<li>Всегда запускайте игру через Launcher или <code>main.exe</code>.</li>
+<li>Запустите игру от имени администратора:</li>
 </ul>
 
 <ol>
-<li>Правая кнопка мыши main.exe → Properties → Compatibility</li>
-<li>Отметить Windows 7</li>
-<li>Отметить "Запустить программу от имени администратора"</li>
-<li>Применить</li>
+<li>Щёлкните правой кнопкой мыши по <code>main.exe</code> → выберите «Свойства» → вкладка «Совместимость».</li>
+<li>Отметьте «Запустить программу в режиме совместимости с:» → выберите Windows 7.</li>
+<li>Отметьте «Запускать эту программу от имени администратора».</li>
+<li>Нажмите «Применить».</li>
 </ol>
 
 <h3>3. Распаковка файлов игры</h3>
@@ -207,129 +263,129 @@ font-size:14px;
 
 <h3>Технические требования</h3>
 
-<h3>1. <a href="https://www.microsoft.com/en-us/download/details.aspx?id=25150" target="_blank">.NET Framework 3.5</a></h3>
-<p>Убедитесь, что установлен корректно.</p>
+<h4>.NET Framework</h4>
+<p>
+Убедитесь, что 
+<a href="https://www.microsoft.com/en-us/download/details.aspx?id=25150" target="_blank">
+.NET Framework 3.5
+</a>
+установлен корректно.
+</p>
 
-<h3>2. DirectX</h3>
+<h4>DirectX</h4>
 <ul>
-<li>Убедитесь, что установлен <a href="https://www.microsoft.com/en-us/download/details.aspx?id=8109" target="_blank">DirectX 9.0c</a> или новее.</li>
-<li>Обновите DirectX до последней версии.</li>
-<li>Проверка версии: Win+R → <code>dxdiag</code></li>
+<li>Убедитесь, что установлен 
+<a href="https://www.microsoft.com/en-us/download/details.aspx?id=8109" target="_blank">
+DirectX 9.0c
+</a> 
+или более новая версия.</li>
+<li>Обновите DirectX до последней версии, чтобы избежать графических ошибок и вылетов.</li>
+<li>Вы можете проверить версию DirectX, запустив «dxdiag» через окно «Выполнить» (Win + R).</li>
 </ul>
 
-<h3>3. Сетевые проблемы</h3>
+<h4>Сетевые проблемы (если игра не запускается)</h4>
 <ul>
-<li>Запустите скрипты из папки Scripts.</li>
-<li>Откройте командную строку и выполните: <code>netsh winsock reset</code></li>
-<li>Перезагрузите ПК.</li>
-<li>При необходимости смените IP или перезапустите интернет.</li>
+<li>Запустите скрипты разрешения и языка, расположенные в папке <code>Scripts</code>.</li>
+<li>Откройте командную строку и введите: <code>netsh winsock reset</code>.</li>
+<li>Нажмите Enter и перезагрузите компьютер.</li>
+<li>Если проблема сохраняется, перезапустите интернет или попробуйте сменить IP-адрес.</li>
 </ul>
+
 
 <h3>Предотвращение выполнения данных (DEP)</h3>
 
 <p>Если появляется ошибка «main.exe has stopped working»:</p>
 
 <ol>
-<li>Щёлкните правой кнопкой мыши по «Этот компьютер» → выберите «Свойства»</li>
-<li>Нажмите «Дополнительные параметры системы»</li>
-<li>Во вкладке «Дополнительно» в разделе «Быстродействие» нажмите «Параметры»</li>
-<li>Перейдите во вкладку «Предотвращение выполнения данных»</li>
-<li>Выберите подходящий вариант и добавьте main.exe в исключения</li>
-<li>Нажмите «Применить» и перезагрузите компьютер</li>
+<li>Щёлкните правой кнопкой мыши по «Этот компьютер» → выберите «Свойства».</li>
+<li>Нажмите «Дополнительные параметры системы».</li>
+<li>Во вкладке «Дополнительно» в разделе «Быстродействие» нажмите «Параметры».</li>
+<li>Перейдите во вкладку «Предотвращение выполнения данных».</li>
+<li>Выберите один из вариантов:
+    <ul>
+        <li>«Включить DEP только для основных программ и служб Windows»</li>
+        <li>«Включить DEP для всех программ и служб, кроме выбранных мной» → добавьте папку PvP Moldova → выберите main.exe</li>
+    </ul>
+</li>
+<li>Нажмите «Применить» и перезагрузите компьютер.</li>
 </ol>
 
 </div>
 
-<!-- ВЫЛЕТЫ -->
-<div class="card">
+<div class="card" id="crash">
 <h2>Игра вылетает или зависает</h2>
 
-<h3>Конфликты с защитным программным обеспечением</h3>
-
 <div class="warning">
-ВНИМАНИЕ: Некоторые антивирусные программы требуют полного удаления.
+ВНИМАНИЕ: Некоторые антивирусы требуют полного удаления.
 </div>
 
+<h3>Конфликты с антивирусом</h3>
 <ul>
-<li>Проверьте, блокирует ли антивирус игру.</li>
-<li>Добавьте папку MU в исключения.</li>
-<li>Windows Defender</li>
-<li>Norton / Bitdefender / RAV (может потребоваться удаление)</li>
-<li>Avira, AVG и другие</li>
+<li>Добавьте игру в исключения</li>
+<li>Проверьте Windows Defender</li>
 </ul>
 
-<h3>Windows Security Features</h3>
-<ul>
-<li>Если появляется ошибка прав администратора — отключите UAC.</li>
-<li><a href="https://www.lifewire.com/disable-uac-in-windows-10-8764194" target="_blank">this tutorial</a></li>
-</ul>
+<h2>Проблемы с драйверами видеокарты</h2>
 
-<h3>System Cleanliness</h3>
-<p>Проверьте систему через:  
-<a href="https://www.malwarebytes.com/antirootkit/" target="_blank">
-Malwarebytes Anti-Rootkit
-</a></p>
+<h3>Настройка двух видеокарт (Dual Graphics Card Setup)</h3>
+
+<p>Если у вас компьютер с интегрированной и дискретной видеокартой (NVIDIA / AMD):</p>
+
+<ul>
+<li>Откройте панель управления видеокартой (NVIDIA Control Panel или AMD Radeon Settings).</li>
+<li>Найдите настройки программы для PvP Moldova (main.exe).</li>
+<li>Принудительно назначьте использование дискретной или интегрированной видеокарты.</li>
+<li>Проверьте, какой режим работает стабильнее.</li>
+</ul>
 
 </div>
 
-<!-- ДРАЙВЕРЫ -->
-<div class="card">
-<h2>Graphics Driver Issues</h2>
-
-<h3>Dual Graphics Card Setup</h3>
-<ul>
-<li>Откройте NVIDIA Control Panel или AMD Radeon Settings</li>
-<li>Найдите PvP Moldova (main.exe)</li>
-<li>Назначьте дискретную или интегрированную видеокарту</li>
-<li>Протестируйте лучший вариант</li>
-</ul>
-</div>
-
-<!-- FPS -->
-<div class="card">
+<div class="card" id="fps">
 <h2>Проблемы с производительностью</h2>
 
-<h3>Лаги и низкая производительность</h3>
+<h3>Лаги и низкий FPS</h3>
 
 <div class="tip">
 Некоторые игроки получают более высокий FPS, если используют Launcher только для обновлений и запускают игру напрямую через main.exe.
 </div>
 
-<h3>1. Основные действия</h3>
+<h4>1. Основные действия</h4>
 <ul>
-<li>Обновите драйверы</li>
-<li>Понизьте графику</li>
-<li>Закройте фоновые программы</li>
-<li>Проверьте интернет</li>
-<li>Проверьте минимальные требования</li>
+<li>Обновите драйверы видеокарты до последней версии.</li>
+<li>Понизьте графические настройки в игре.</li>
+<li>Закройте ненужные фоновые программы.</li>
+<li>Проверьте стабильность интернет-соединения.</li>
+<li>Убедитесь, что ваш ПК соответствует минимальным системным требованиям.</li>
 </ul>
 
-<h3>2. Дополнительные настройки производительности</h3>
+<h4>2. Расширенная оптимизация</h4>
 <ul>
-<li>Понизьте разрешение</li>
-<li>Отключите HD</li>
-<li>Min Colors</li>
-<li>Effect → Antilag</li>
-<li>Отключите 3D Camera</li>
-<li>Settings.ini → New FPS = 1</li>
+<li>Уменьшите разрешение экрана (через меню настроек клиента, Launcher или скрипты в папке клиента).</li>
+<li>Отключите опцию «HD» в Launcher.</li>
+<li>Выберите «Min Colors» в Launcher.</li>
+<li>Отключите настройки Effect → Antilag в меню Options.</li>
+<li>Отключите управление 3D-камерой.</li>
+<li>В файле Settings.ini (в папке клиента) установите параметр New FPS = 1.</li>
 </ul>
 
 </div>
 
-<!-- SUPPORT -->
-<div class="card" style="text-align:center;">
-<h2>Нужна дополнительная помощь?</h2>
-<p>Если проблема не решена:</p>
+
+<div class="card" id="help" style="text-align:center;">
+<h2>Дополнительная помощь</h2>
+
+<p>Если вам не удалось решить проблему с помощью данного руководства:</p>
+
 <a href="https://t.me/PandaPanda098" target="_blank" class="button">
-Связаться с поддержкой
+Обратиться в поддержку
 </a>
-</div>
-
 </div>
 
 <footer>
 © 2026 PVP Moldova | Official Support
 </footer>
+
+</div>
 
 </body>
 </html>
