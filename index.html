@@ -126,8 +126,22 @@ font-weight:700;
 color:var(--emerald);
 margin-bottom:28px;
 letter-spacing:0.5px;
+text-shadow: 0 0 10px rgba(30,200,165,0.3);
+position:relative;
+padding-bottom:12px;
 }
 
+h2::after{
+content:"";
+position:absolute;
+left:0;
+bottom:0;
+width:60px;
+height:2px;
+background:var(--emerald);
+box-shadow:0 0 10px rgba(30,200,165,0.4);
+}
+    
 h3{
 font-size:18px;
 font-weight:600;
