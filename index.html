@@ -59,7 +59,7 @@ header p {
     border: 1px solid var(--border);
     border-radius: 18px;
     padding: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     transition: 0.3s ease;
     box-shadow: 0 0 30px #000;
 }
@@ -77,7 +77,7 @@ h2 {
 
 h3 {
     color: var(--amber);
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 ul, ol {
@@ -95,7 +95,7 @@ ul, ol {
 .warning {
     padding: 15px;
     border-left: 4px solid var(--amber);
-    background: #ffb30010;
+    background: #ffb30015;
     margin: 15px 0;
     border-radius: 8px;
 }
@@ -107,10 +107,12 @@ code {
     color: var(--amber);
 }
 
+a { color: var(--emerald); }
+
 .button {
     display: inline-block;
     padding: 14px 28px;
-    margin-top: 15px;
+    margin-top: 20px;
     border-radius: 50px;
     font-weight: 600;
     text-decoration: none;
@@ -123,8 +125,6 @@ code {
     transform: scale(1.05);
     box-shadow: 0 0 20px var(--emerald);
 }
-
-a { color: var(--emerald); }
 
 footer {
     text-align: center;
@@ -139,89 +139,146 @@ footer {
 
 <header>
 <h1>PVP Moldova</h1>
-<p>Официальное руководство по устранению технических проблем</p>
+<p>Руководство по устранению технических проблем</p>
 </header>
 
 <div class="container">
 
-<!-- GAME START -->
+<!-- НЕ ЗАПУСКАЕТСЯ -->
 <div class="card">
-<h2>Игра не запускается</h2>
+<h2>Если игра не запускается</h2>
 
-<div class="tip">
-После применения любого исправления проверьте работу игры перед переходом к следующему шагу.
-</div>
+<h3>Типичные проблемы при запуске</h3>
 
-<h3>Проверка пути установки</h3>
+<h3>1. Проверка пути установки </h3>
 <ul>
-<li>Установите клиент на диск с Windows (обычно C:)</li>
-<li>Рекомендуемый путь: <code>C:\Games\PVP_Moldova</code></li>
-<li>Избегайте путей с кириллицей</li>
+<li>Убедитесь, что клиент установлен на тот же диск, где находится Windows (обычно диск C:).</li>
+<li>Рекомендуемый путь: <code>C:\Games\PvP Moldova</code></li>
+<li>Избегайте путей с кириллицей (пример: C:\Игры\PvP Moldova).</li>
 </ul>
 
-<h3>Метод запуска</h3>
+<h3>2. Способ запуска игры</h3>
 <ul>
-<li>Запустите скрипты разрешения и языка из папки Scripts</li>
-<li>Всегда запускайте через Launcher или <code>main.exe</code></li>
+<li>Запустите скрипты разрешения и языка из папки Scripts.</li>
+<li>Всегда запускайте через Launcher или <code>main.exe</code>.</li>
+<li>Запуск от имени администратора:</li>
 </ul>
 
 <ol>
-<li>Правый клик → Свойства → Совместимость</li>
-<li>Выберите Windows 7</li>
-<li>Отметьте "Запуск от имени администратора"</li>
+<li>Правая кнопка мыши main.exe → Properties → Compatibility</li>
+<li>Отметить Windows 7</li>
+<li>Отметить "Запустить программу от имени администратора"</li>
 <li>Применить</li>
 </ol>
 
-<h3>.NET Framework 3.5</h3>
-<a href="https://www.microsoft.com/en-us/download/details.aspx?id=25150" target="_blank">
-Скачать
-</a>
+<h3>3. Распаковка файлов игры</h3>
+<p>Убедитесь, что все файлы игры полностью извлечены.</p>
 
-<h3>DirectX 9.0c</h3>
-<a href="https://www.microsoft.com/en-us/download/details.aspx?id=8109" target="_blank">
-Скачать
-</a>
+<h3>Технические требования</h3>
 
-<h3>Сетевые проблемы</h3>
-<p>Выполните:</p>
-<code>netsh winsock reset</code>
+<h3>1. <a href="https://www.microsoft.com/en-us/download/details.aspx?id=25150" target="_blank">.NET Framework 3.5</a></h3>
+<p>Убедитесь, что установлен корректно.</p>
 
-<h3>DEP</h3>
-<p>Добавьте main.exe в исключения DEP и перезагрузите ПК.</p>
+<h3>2. DirectX</h3>
+<ul>
+<li>Убедитесь, что установлен <a href="https://www.microsoft.com/en-us/download/details.aspx?id=8109" target="_blank">DirectX 9.0c</a> или новее.</li>
+<li>Обновите DirectX до последней версии.</li>
+<li>Проверка версии: Win+R → <code>dxdiag</code></li>
+</ul>
+
+<h3>3. Сетевые проблемы</h3>
+<ul>
+<li>Запустите скрипты из папки Scripts.</li>
+<li>Откройте командную строку и выполните: <code>netsh winsock reset</code></li>
+<li>Перезагрузите ПК.</li>
+<li>При необходимости смените IP или перезапустите интернет.</li>
+</ul>
+
+<h3>Предотвращение выполнения данных (DEP)</h3>
+
+<p>Если появляется ошибка «main.exe has stopped working»:</p>
+
+<ol>
+<li>Щёлкните правой кнопкой мыши по «Этот компьютер» → выберите «Свойства»</li>
+<li>Нажмите «Дополнительные параметры системы»</li>
+<li>Во вкладке «Дополнительно» в разделе «Быстродействие» нажмите «Параметры»</li>
+<li>Перейдите во вкладку «Предотвращение выполнения данных»</li>
+<li>Выберите подходящий вариант и добавьте main.exe в исключения</li>
+<li>Нажмите «Применить» и перезагрузите компьютер</li>
+</ol>
 
 </div>
 
-<!-- CRASH -->
+<!-- ВЫЛЕТЫ -->
 <div class="card">
-<h2>Вылеты и зависания</h2>
+<h2>Игра вылетает или зависает</h2>
+
+<h3>Конфликты с защитным программным обеспечением</h3>
 
 <div class="warning">
-Некоторые антивирусы требуют полного удаления.
+ВНИМАНИЕ: Некоторые антивирусные программы требуют полного удаления.
 </div>
 
 <ul>
-<li>Добавьте игру в исключения</li>
-<li>Проверьте Windows Defender</li>
-<li>Отключите UAC</li>
-<li>Проверьте DEP</li>
-<li>Просканируйте систему через Malwarebytes</li>
-<li>Настройте видеокарту (NVIDIA/AMD)</li>
+<li>Проверьте, блокирует ли антивирус игру.</li>
+<li>Добавьте папку MU в исключения.</li>
+<li>Windows Defender</li>
+<li>Norton / Bitdefender / RAV (может потребоваться удаление)</li>
+<li>Avira, AVG и другие</li>
 </ul>
 
+<h3>Windows Security Features</h3>
+<ul>
+<li>Если появляется ошибка прав администратора — отключите UAC.</li>
+<li><a href="https://www.lifewire.com/disable-uac-in-windows-10-8764194" target="_blank">this tutorial</a></li>
+</ul>
+
+<h3>System Cleanliness</h3>
+<p>Проверьте систему через:  
+<a href="https://www.malwarebytes.com/antirootkit/" target="_blank">
+Malwarebytes Anti-Rootkit
+</a></p>
+
+</div>
+
+<!-- ДРАЙВЕРЫ -->
+<div class="card">
+<h2>Graphics Driver Issues</h2>
+
+<h3>Dual Graphics Card Setup</h3>
+<ul>
+<li>Откройте NVIDIA Control Panel или AMD Radeon Settings</li>
+<li>Найдите PvP Moldova (main.exe)</li>
+<li>Назначьте дискретную или интегрированную видеокарту</li>
+<li>Протестируйте лучший вариант</li>
+</ul>
 </div>
 
 <!-- FPS -->
 <div class="card">
-<h2>Лаги / Низкий FPS</h2>
+<h2>Проблемы с производительностью</h2>
+
+<h3>Лаги и низкая производительность</h3>
 
 <div class="tip">
-Лучший FPS иногда достигается при запуске напрямую через main.exe.
+Некоторые игроки получают более высокий FPS, если используют Launcher только для обновлений и запускают игру напрямую через main.exe.
 </div>
 
+<h3>1. Основные действия</h3>
 <ul>
 <li>Обновите драйверы</li>
+<li>Понизьте графику</li>
+<li>Закройте фоновые программы</li>
+<li>Проверьте интернет</li>
+<li>Проверьте минимальные требования</li>
+</ul>
+
+<h3>2. Дополнительные настройки производительности</h3>
+<ul>
+<li>Понизьте разрешение</li>
 <li>Отключите HD</li>
 <li>Min Colors</li>
+<li>Effect → Antilag</li>
 <li>Отключите 3D Camera</li>
 <li>Settings.ini → New FPS = 1</li>
 </ul>
@@ -230,10 +287,10 @@ footer {
 
 <!-- SUPPORT -->
 <div class="card" style="text-align:center;">
-<h2>Дополнительная помощь</h2>
+<h2>Нужна дополнительная помощь?</h2>
 <p>Если проблема не решена:</p>
 <a href="https://t.me/PandaPanda098" target="_blank" class="button">
-Связаться в Telegram
+Связаться с поддержкой
 </a>
 </div>
 
