@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PVP Moldova – Руководство по устранению неполадок</title>
+
+<style>
+:root {
+    --emerald: #10b981;
+    --amber: #f59e0b;
+    --graphite: #0f0f14;
+    --card: #18181f;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--graphite);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(90deg, var(--emerald), var(--amber));
+    padding: 20px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+h2 {
+    color: var(--emerald);
+    border-bottom: 2px solid var(--amber);
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: var(--amber);
+}
+
+.tip {
+    background: rgba(16,185,129,0.1);
+    border-left: 4px solid var(--emerald);
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.warning {
+    background: rgba(245,158,11,0.1);
+    border-left: 4px solid var(--amber);
+    padding: 10px;
+    margin: 10px 0;
+}
+
+code {
+    background: #111;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--muted);
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+PVP Moldova – Руководство по устранению неполадок
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>Игра не запускается</h2>
+
+<div class="tip">
+После применения каждого решения проверьте запуск игры перед тем как переходить к следующему шагу.
+</div>
+
+<h3>Путь установки</h3>
+<ul>
+<li>Установите клиент на диск с Windows (обычно C:)</li>
+<li>Рекомендуемый путь: <code>C:\Games\PVP_Moldova</code></li>
+<li>Не используйте кириллицу в названии папок</li>
+</ul>
+
+<h3>Правильный запуск</h3>
+<ul>
+<li>Запустите скрипты разрешения/языка из папки Scripts</li>
+<li>Всегда запускайте через Launcher или <code>main.exe</code></li>
+<li>Запуск от имени администратора (режим совместимости Windows 7)</li>
+</ul>
+
+<h3>.NET Framework</h3>
+<p>Убедитесь, что установлен .NET Framework 3.5.</p>
+
+<h3>DirectX</h3>
+<ul>
+<li>Установите DirectX 9.0c или новее</li>
+<li>Проверьте версию через <code>dxdiag</code> (Win + R)</li>
+</ul>
+
+<h3>Сброс сети</h3>
+<p>Откройте командную строку и выполните:</p>
+<code>netsh winsock reset</code>
+<p>После этого перезагрузите компьютер.</p>
+
+<h3>DEP (Data Execution Prevention)</h3>
+<ul>
+<li>Этот компьютер → Свойства → Дополнительные параметры системы</li>
+<li>Быстродействие → Параметры → Предотвращение выполнения данных</li>
+<li>Добавьте <code>main.exe</code> в исключения</li>
+</ul>
+
+</div>
+
+<div class="card">
+<h2>Игра вылетает или зависает</h2>
+
+<h3>Антивирус блокирует игру</h3>
+
+<div class="warning">
+Некоторые антивирусы требуют полного удаления, обычного отключения может быть недостаточно.
+</div>
+
+<ul>
+<li>Добавьте папку PVP Moldova в исключения</li>
+<li>Проверьте Windows Defender</li>
+<li>Временно отключите защитное ПО</li>
+</ul>
+
+<h3>Ошибка прав администратора</h3>
+<p>Если появляется красное предупреждение — отключите UAC (Контроль учетных записей).</p>
+
+<h3>Проблемы с видеокартой</h3>
+<ul>
+<li>Принудительно выберите видеокарту в панели NVIDIA / AMD</li>
+<li>Протестируйте интегрированную и дискретную графику</li>
+</ul>
+
+</div>
+
+<div class="card">
+<h2>Низкий FPS / Лаги</h2>
+
+<div class="tip">
+Некоторые игроки получают лучший FPS, обновляя через Launcher, но запуская игру напрямую через main.exe.
+</div>
+
+<h3>Базовые шаги</h3>
+<ul>
+<li>Обновите драйвер видеокарты</li>
+<li>Понизьте графику в игре</li>
+<li>Закройте фоновые программы</li>
+<li>Проверьте стабильность интернета</li>
+</ul>
+
+<h3>Продвинутые настройки</h3>
+<ul>
+<li>Понизьте разрешение</li>
+<li>Отключите HD в Launcher</li>
+<li>Включите Min Colors</li>
+<li>Отключите 3D Camera</li>
+<li>В файле Settings.ini установите New FPS = 1</li>
+</ul>
+
+</div>
+
+<div class="card">
+<h2>Нужна помощь?</h2>
+<p>Создайте тикет в поддержке и подробно опишите проблему.</p>
+<p>Мы ответим максимально быстро.</p>
+</div>
+
+</div>
+
+<footer>
+© 2026 PVP Moldova | Официальная страница поддержки
+</footer>
+
+</body>
+</html>
