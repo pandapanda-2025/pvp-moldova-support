@@ -29,7 +29,6 @@ color:var(--text);
 display:flex;
 }
 
-/* SIDEBAR */
 
 .sidebar{
 width:260px;
@@ -65,7 +64,6 @@ background:var(--emerald-soft);
 color:var(--emerald);
 }
 
-/* MAIN */
 
 .main{
 margin-left:260px;
@@ -210,12 +208,18 @@ border-top:1px solid var(--border);
 margin-top:50px;
 }
 
-/* MOBILE */
-
 @media (max-width: 900px){
 
+html{
+background:#0a0c10;
+}
+
 body{
-display:block;
+margin:0;
+font-family:'Inter',sans-serif;
+background:radial-gradient(circle at 20% 0%, #0f1a26 0%, #0a0c10 55%);
+color:var(--text);
+display:flex;
 }
 
 .sidebar{
@@ -233,7 +237,7 @@ margin-bottom:30px;
 }
 
 .logo img{
-width:220px;   /* КРУПНЫЙ логотип */
+width:240px;  
 max-width:90%;
 }
 
